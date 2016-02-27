@@ -319,9 +319,14 @@ int main() {
 
             case 3:
             {
-
-                
-                
+                cout << "Enter Matrix Dimension M x N : " << endl ; 
+                int M ; 
+                int N ; 
+                cin >> M ;
+                cin >> N ; 
+                int matrix [M][N];
+              
+                // Norm Code Goes Here 
 
                 break;
 
