@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <iostream>
 #include<stdlib.h>
+#include <cmath>
 
 using namespace std;
 
@@ -176,7 +177,7 @@ int main() {
                 int first [M][N];
                 int secound [N][L];
                 int multblication [M][L];
-                cout << "Enter\n\t1 to fill the two matrices\n\t2 to fill them randomly"<<endl;
+                cout << "Enter\n\t1 to fill the two matrices\n\t2 to fill them randomly" << endl;
                 int entery;
                 cin >> entery;
                 switch (entery) {
@@ -313,21 +314,40 @@ int main() {
                     break;
 
                 }
-                
-                break ; 
+
+                break;
             }
 
             case 3:
             {
-                cout << "Enter Matrix Dimension M x N : " << endl ; 
-                int M ; 
-                int N ; 
-                cin >> M ;
-                cin >> N ; 
+                cout << "Enter Matrix Dimension M x N : " << endl;
+                int M;
+                int N;
+                double norm;
+                cout << "M : ";
+                cin >> M;
+                cout << "\nN : ";
+                cin >> N;
                 int matrix [M][N];
-              
-                // Norm Code Goes Here 
 
+                cout << "Enter  Matrix Elements " << M << " X " << N << "\n";
+                for (int i = 0; i < M; i++) {
+                    for (int j = 0; j < N; j++) {
+                        cout << "Matrix [" << i << "][" << j << "] = ";
+                        cin >> matrix[i][j];
+
+                    }
+                }
+
+                for (int i = 0; i < M; i++) {
+                    for (int j = 0; j < N; j++) {
+                        norm += matrix[i][j] * matrix[i][j];
+                    }
+                }
+
+                norm = pow(norm, 0.5f);
+
+                cout << "Norm of The Entered Matrix is : " << norm << endl;
                 break;
 
             }
