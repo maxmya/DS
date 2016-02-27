@@ -169,9 +169,9 @@ int main() {
                 cout << "Enter first matrix Dimensions M X N : " << endl;
                 cout << "Enter M : ";
                 cin >> M;
-                cout << "\nEnter N : ";
+                cout << "Enter N : ";
                 cin >> N;
-                cout << "\nEnter Second matrix Dimensions " << N << " X L: " << endl;
+                cout << "Enter Second matrix Dimensions " << N << " X L: " << endl;
                 cout << "Enter L : ";
                 cin >> L;
                 int first [M][N];
@@ -219,9 +219,7 @@ int main() {
                             }
                         }
                         cout << "Matrix B Created" << endl;
-
-
-
+                        
                         break;
                     }
                     default: cout << "The Entered Value is invalid !" << endl;
@@ -304,14 +302,12 @@ int main() {
                         }
                         case 4:
                         {
-
                             multFlag = false;
                             break;
                         }
                         default: cout << "The Entered Value is invalid !" << endl;
 
                     }
-                    break;
 
                 }
 
