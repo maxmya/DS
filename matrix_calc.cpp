@@ -60,9 +60,6 @@ int main() {
 
                             }
                         }
-
-
-
                         break;
                     }
                     case 2:
@@ -128,13 +125,11 @@ int main() {
                         }
                         case 3:
                         {
-
                             for (int i = 0; i < sizeY; i++) {
                                 for (int j = 0; j < sizeX; j++) {
                                     multblication[i] += vect[j] * matr[j][i];
                                 }
                             }
-
                             cout << "Vector X Matrix Result = [";
                             for (int i = 0; i < sizeY; i++) {
                                 cout << multblication[i];
@@ -156,9 +151,7 @@ int main() {
                         default: cout << "The Entered Value is invalid !" << endl;
 
                     }
-
                 }
-
                 break;
             }
             case 2:
@@ -177,6 +170,11 @@ int main() {
                 int first [M][N];
                 int secound [N][L];
                 int multblication [M][L];
+                for (int i =0 ; i < M ; i++){
+                    for (int j =0 ; j < L ; j++){
+                        multblication[i][j]=0;
+                    }
+                }
                 cout << "Enter\n\t1 to fill the two matrices\n\t2 to fill them randomly" << endl;
                 int entery;
                 cin >> entery;
@@ -219,7 +217,7 @@ int main() {
                             }
                         }
                         cout << "Matrix B Created" << endl;
-                        
+
                         break;
                     }
                     default: cout << "The Entered Value is invalid !" << endl;
@@ -234,7 +232,6 @@ int main() {
 
                         case 1:
                         {
-
                             cout << "The  Matrix A " << M << " X " << N << "\n";
                             for (int i = 0; i < M; i++) {
 
@@ -249,11 +246,9 @@ int main() {
                                 cout << "\n";
                             }
                             break;
-
                         }
                         case 2:
                         {
-
                             cout << "The  Matrix B " << N << " X " << L << "\n";
                             for (int i = 0; i < N; i++) {
 
@@ -275,16 +270,15 @@ int main() {
                         {
 
                             for (int i = 0; i < M; i++) {
-                                for (int j = 0; j < N; j++) {
-                                    multblication[i][j] = 0;
-                                    for (int k = 0; k < L; k++) {
+                                for (int j = 0; j < L; j++) {
+                                    for (int k = 0; k < N; k++) {
                                         multblication[i][j] += first[i][k] * secound[k][j];
                                     }
                                 }
 
                             }
 
-                            cout << "Matrix Result A X B is :" << endl;
+                            cout << "Matrix Result A X B is :" << M << " X " << L << endl;
                             for (int i = 0; i < M; i++) {
                                 for (int j = 0; j < L; j++) {
                                     cout << multblication[i][j];
@@ -356,7 +350,5 @@ int main() {
 
         }
     }
-
     return 0;
 }
-
