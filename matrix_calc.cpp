@@ -10,6 +10,7 @@
 #include <iostream>
 #include<stdlib.h>
 #include <cmath>
+#include <fstream>
 
 using namespace std;
 
@@ -40,7 +41,7 @@ int main() {
                 for (int i = 0; i < sizeY; i++) {
                     multblication[i] = 0;
                 }
-                cout << "\t1 To fill them\n\t2 to randomly fill them" << endl;
+                cout << "\t1 To fill them\n\t2 to randomly fill them\n\t3 To read from existed file\n\t4 To enter directory of file" << endl;
                 int choose;
                 cin >> choose;
                 switch (choose) {
@@ -77,6 +78,107 @@ int main() {
                         cout << "Matrix Created" << endl;
 
                         break;
+
+                    }
+
+                    case 3:
+                    {
+
+                        cout << "Make sure that the file is on the same directory of the App\n\t1 to OK\n\t2 to termenate" << endl;
+
+                        int entery;
+                        cin >> entery;
+                        if (entery == 1) {
+
+                            int vectorArr[sizeX];
+                            for (int i = 0; i < sizeX; i++) {
+                                vectorArr[i] = 0;
+                            }
+
+                            ifstream vectorFile("vector.txt");
+                            if (vectorFile.is_open()) {
+                                for (int i = 0; i < sizeX; i++) {
+                                    vectorFile >> vectorArr[i];
+                                }
+                            }
+
+                            cout << "Vector Read" << endl;
+                            //-----------------------
+                            int matrixArr[sizeX][sizeY];
+                            for (int i = 0; i < sizeX; i++) {
+                                for (int j = 0; j < sizeY; j++) {
+                                    matrixArr[i][j] = 0;
+                                }
+                            }
+                            ifstream matrixFile("matrix.txt");
+                            if (matrixFile.is_open()) {
+                                for (int i = 0; i < sizeX; i++) {
+                                    for (int j = 0; j < sizeY; j++) {
+                                        matrixFile >> matrixArr[i][j];
+                                    }
+                                }
+
+                            }
+
+                            cout << "Matrix Read" << endl;
+
+                            cout << "\nThe vector is " << endl;
+                            for (int i = 0; i < sizeX; i++) {
+                                cout << vectorArr[i] << " , ";
+                            }
+                            cout << "\nThe Matrix is " << endl;
+                            for (int i = 0; i < sizeX; i++) {
+                                for (int j = 0; j < sizeY; j++) {
+                                    cout << matrixArr[i][j] << " , ";
+                                }
+                                cout << endl;
+                            }
+
+                            int multblicatio [sizeY];
+                            for (int i = 0; i < sizeY; i++) {
+                                multblicatio[i] = 0;
+                            }
+                            for (int i = 0; i < sizeY; i++) {
+                                for (int j = 0; j < sizeX; j++) {
+
+                                    multblicatio[i] += vectorArr[j] * matrixArr[j][i];
+                                }
+                            }
+                            cout << "Vector X Matrix Result = [";
+                            for (int i = 0; i < sizeY; i++) {
+                                cout << multblicatio[i];
+                                if (i + 1 == sizeY)
+                                    break;
+                                cout << ",";
+                            }
+                            cout << "]";
+
+                            choose = false;
+
+                            ofstream myResult;
+                            myResult.open("result.txt");
+                            myResult.clear();
+                            myResult << "[";
+                            for (int i = 0 ; i <sizeY; i++) {
+                                
+                                myResult << multblicatio[i] << " , ";
+
+                            }
+                            myResult << "]";
+                            myResult.close();
+                            exit(EXIT_SUCCESS);
+
+
+                        } else {
+                            Bflag = false;
+                        }
+
+
+                        break;
+
+                    }
+                    case 4:
+                    {
 
                     }
                     default: cout << "The Entered Value is invalid !" << endl;
@@ -170,12 +272,12 @@ int main() {
                 int first [M][N];
                 int secound [N][L];
                 int multblication [M][L];
-                for (int i =0 ; i < M ; i++){
-                    for (int j =0 ; j < L ; j++){
-                        multblication[i][j]=0;
+                for (int i = 0; i < M; i++) {
+                    for (int j = 0; j < L; j++) {
+                        multblication[i][j] = 0;
                     }
                 }
-                cout << "Enter\n\t1 to fill the two matrices\n\t2 to fill them randomly" << endl;
+                cout << "Enter\n\t1 to fill the two matrices\n\t2 to fill them randomly\n\t3 to read from file" << endl;
                 int entery;
                 cin >> entery;
                 switch (entery) {
@@ -218,6 +320,13 @@ int main() {
                         }
                         cout << "Matrix B Created" << endl;
 
+                        break;
+                    }
+
+                    case 3:
+                    {
+
+                      
                         break;
                     }
                     default: cout << "The Entered Value is invalid !" << endl;
